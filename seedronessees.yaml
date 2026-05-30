@@ -1,0 +1,12 @@
+path: Datasets/SeaDronesSees
+train: images/train
+val: images/val
+test: images/test
+
+# Classes
+names:
+  0: swimmer
+  1: big vessel
+  2: small vessel
+  3: ignored
+  4: ignored
