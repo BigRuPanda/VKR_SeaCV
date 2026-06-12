@@ -23,14 +23,21 @@
 
 ## 🚀 Быстрый старт (одной командой)
 
-Скопируйте и выполните одну команду — она клонирует репозиторий, установит зависимости и запустит детекцию на тестовом видео:
+Скопируйте и выполните одну команду — она клонирует репозиторий, установит зависимости и запустит детекцию на тестовом видео.
 
-```bash
+> **Требования:** установленный Python 3.8+ и Git.
+
+### Для Command Prompt (cmd)
+
+```cmd
 git clone https://github.com/BigRuPanda/VKR_SeaCV.git && cd VKR_SeaCV && pip install -r requirements.txt && python run_prediction_stream.py
 ```
 
-> **Требования:** установленный Python 3.8+ и Git.  
-> На Windows используйте **PowerShell** или **cmd** (не WSL).
+### Для PowerShell
+
+```powershell
+git clone https://github.com/BigRuPanda/VKR_SeaCV.git; cd VKR_SeaCV; pip install -r requirements.txt; python run_prediction_stream.py
+```
 
 ---
 
