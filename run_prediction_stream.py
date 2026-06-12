@@ -8,14 +8,15 @@ from ultralytics import YOLO
 # Параметры проекта
 project = 'runs/detect/seadrone_yolo/yolo26n_seadrone'
 model_path = f'{project}/weights/best.pt'
-video_path = 'videos/1.mp4'
+video_path = 'videos/3.mp4'
 
 # Соответствие классов и цветов (согласно 4-классовой схеме из Главы 4)
 LABELS_EN = {
     0: "swimmer",       # человек в воде
     1: "big vessel",    # крупные суда
     2: "small vessel",  # малые суда
-    3: "ignored",       # игнорируемые объекты (буи, навигационные знаки)
+    3: "ignored",       # игнорируемые объекты (буи)
+    4: "ignored",       # игнорируемые объекты (навигационные знаки)
 }
 
 COLORS = {
@@ -26,7 +27,7 @@ COLORS = {
 }
 
 # Порог уверенности для отображения (YOLO также фильтрует на уровне инференса)
-CONFIDENCE_THRESHOLD = 0.35
+CONFIDENCE_THRESHOLD = 0.1
 
 # Очередь для кадров (максимум 1, чтобы не накапливать задержку и работать в real-time)
 frame_queue = queue.Queue(maxsize=1)

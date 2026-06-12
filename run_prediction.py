@@ -4,7 +4,7 @@ import os
 
 model = 'yolo26n'
 project = 'seadrone_yolo'
-video_path = 'videos/1.mp4'
+video_path = 'videos/3.mp4'
 image_path = 'Datasets/SeaDronesSees/images/val/71.jpg'
 name = str(f'runs/runs_{model}')
 show = True
@@ -73,4 +73,4 @@ if __name__ == '__main__':
     model.predict('Datasets/SeaDronesSees/images/val/71.jpg', show=show, save=True, project=project, name=name)
 
     # Конвертация видео в mp4
-    convert_avi_to_mp4_in_folder('seadrone_yolo/runs', name)
+    convert_avi_to_mp4_in_folder('runs/detect/seadrone_yolo/runs')
