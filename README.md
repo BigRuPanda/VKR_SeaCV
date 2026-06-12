@@ -21,53 +21,57 @@
 | 2 | small vessel | Малые суда |
 | 3 | ignored | Игнорируемые объекты (буи, навигационные знаки) |
 
-## ⚙️ Установка
+## 🚀 Быстрый старт (одной командой)
 
-### Установка зависимостей
+Скопируйте и выполните одну команду — она клонирует репозиторий, установит зависимости и запустит детекцию на тестовом видео:
 
 ```bash
-pip install ultralytics opencv-python numpy torch torchvision matplotlib tqdm
+git clone https://github.com/BigRuPanda/VKR_SeaCV.git && cd VKR_SeaCV && pip install -r requirements.txt && python run_prediction_stream.py
 ```
 
-## 🚀 Быстрый старт
+> **Требования:** установленный Python 3.8+ и Git.  
+> На Windows используйте **PowerShell** или **cmd** (не WSL).
 
-### 1. Конвертация аннотаций
+---
+
+## ⚙️ Установка зависимостей (отдельно)
+
+Если вы уже склонировали репозиторий:
 
 ```bash
-# Используя coco_to_yolo.py
+pip install -r requirements.txt
+```
+
+## 📋 Другие скрипты
+
+### Конвертация аннотаций COCO → YOLO
+
+```bash
 python coco_to_yolo.py
-
-# Или через CLI ultralytics
-yolo detect convert label-format=coco format=yolo path=Datasets/SeaDronesSees/annotations/instances_train.json save_dir=Datasets/SeaDronesSees/labels/train
-yolo detect convert label-format=coco format=yolo path=Datasets/SeaDronesSees/annotations/instances_val.json save_dir=Datasets/SeaDronesSees/labels/val
 ```
 
-### 2. Обучение модели
-
-Запустить обучение модели:
+### Обучение модели
 
 ```bash
 python train_yolo.py
 ```
 
 Параметры обучения (настраиваются в `train_yolo.py`):
-- `model_name`: 'yolo26n'
+- `model_name`: `yolo26n`
 - `epochs`: 16
 - `imgsz`: 640
 - `batch`: 48
 - `device`: 0 (GPU)
 
-Результаты обучения сохраняются в папку `seadrone_yolo/`.
+Результаты сохраняются в `runs/detect/seadrone_yolo/`.
 
-### 3. Запуск предсказаний
-
-#### На изображениях и видео:
+### Запуск предсказаний на изображениях и видео
 
 ```bash
 python run_prediction.py
 ```
 
-#### Потоковая обработка видео (многопоточная):
+### Потоковая обработка видео (многопоточная)
 
 ```bash
 python run_prediction_stream.py
